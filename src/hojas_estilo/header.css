@@ -1,0 +1,37 @@
+.header-container{
+    height: 100px;
+    padding-left: 40px;
+    background-color: #24262b;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.logo-container{
+    width:40%
+}
+.logo-container img{
+    width:300px;
+}
+.header-options{
+    width: 40%;
+}
+.header-options ul{
+    display: flex;
+    gap: 40px;
+    list-style: none;
+}
+
+.searcher-container{
+    width: 20%;
+}
+.header-options ul li{
+    color: #fff;
+    font-weight: 600;
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: transform .3s ease;
+}
+.header-options ul li:hover{
+    color: #eb007a;
+    transform: scale(1.1);
+}
