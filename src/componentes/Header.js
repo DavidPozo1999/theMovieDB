@@ -2,7 +2,7 @@ import React from "react";
 import logo from '../imagenes/LOGODAVIDEO.png'
 import Searcher from './Searcher'
 import '../hojas_estilo/header.css'
-function Header(){
+function Header({setSearchValue}){
     return(
         <div className="header-container">
             <div className="logo-container">
@@ -17,7 +17,7 @@ function Header(){
                 </ul>
             </div>
             <div className="searcher-container">
-                <Searcher /> 
+                <Searcher setSearchValue={setSearchValue}/> 
             </div>
         </div>
     )
