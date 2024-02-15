@@ -3,17 +3,27 @@
 }
 
 .genre-item{
-    font-size: 1.2rem;
     width: 100%;
-    font-weight: 600;
     padding: 10px 15px;
     margin: 15px 0;
-    color: #fff;
     cursor: pointer;
     border-radius: 12px;
 }
 
+a{
+    font-size: 1.2rem;
+    color: #fff;
+    cursor: pointer;
+    border-radius: 12px;
+    text-decoration: none;
+    width: 100%;
+}
 .genre-item:hover{
+    color: #eb007a;
+    background-color: #191919;
+}
+
+.active{
     color: #eb007a;
     background-color: #191919;
 }

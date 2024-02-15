@@ -1,32 +1,14 @@
 import React from "react";
-import {useEffect, useState} from 'react'
-import { getGenres } from "../api/apiCalls";
+import { useGenres } from "../api/useEffect";
+import {NavLink} from 'react-router-dom';
 import '../hojas_estilo/genre.css'
-function Genre({ idGenre }){
-
-    //Creamos un useState donde añadiremos los generos
-    const [genres, setGenres]=useState([]);
-
-    //Creamos un useEffect que realice la llamada y recoja los datos yse ejecute al iniciar la aplicación. 
-    useEffect(()=>{
-        const fetchData= async ()=>{
-            try{
-                const data=await getGenres();
-                setGenres(data.genres);
-            }catch(error){
-                console.log("error al cargar los datos");
-            }
-        }
-        fetchData()},[])
-    
-    const getIdGenre= (id)=>{
-        idGenre(id)
-    }
+function Genre(){
+    const url='https://api.themoviedb.org/3/genre/movie/list?language=es&api_key=915d3db1d56234a45bf89e71a4552ea2';
+    const data=useGenres(url);
     return(
-
         <ul className="genre-list">
-            {genres.map((genre)=>(
-                <li className="genre-item" key={genre.id}><p onClick={()=>getIdGenre(genre.id)}>{genre.name}</p></li>
+            {data?.map((genre)=>(
+                <NavLink to={`/peliculas/${genre.name}`} state={{genreId: genre.id}} className={({isActive})=>(isActive ? 'active' : null)} > <li className="genre-item" key={genre.id}>{genre.name}</li></NavLink>
             ))}          
         </ul>
     )

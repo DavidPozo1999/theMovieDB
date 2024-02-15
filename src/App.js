@@ -1,31 +1,20 @@
-import { useState } from 'react';
 import './App.css';
-import Genre from './componentes/Genre';
-import Header from './componentes/Header'
-import Movie from './componentes/Movie';
+import Header from './componentes/Header';
+import Index from './paginas/index';
+import CardMovie from './paginas/CardMovie';
+import {BrowserRouter, Route, Routes, Navigate} from 'react-router-dom'
 function App() {
-  const [idGenre, setIdGenre]=useState('');
-  const [searchValue, setSearchValue] = useState('');
-
-  
-  const getIdGenre=(datos)=>{
-    setIdGenre(datos)
-  }
-  const getSearchValue=(datos)=>{
-    setSearchValue(datos)
-  }
   return (
     <div className="App">
-      <Header setSearchValue={getSearchValue}/>
-
-      <div className='body body-container'>
-        <div className='genre-container'>
-          <Genre idGenre={getIdGenre} />
-        </div>
-        <div className='movie-container'>
-          <Movie idGenre={idGenre} searchValue={searchValue}/>
-        </div>
-      </div>
+      <BrowserRouter>
+      <Header/>
+        <Routes>
+          <Route path='/' element={<Index />}></Route>
+          <Route path='/peliculas/:genre' element={<Index />}></Route>
+          <Route path='/search/:search' element={<Index />}></Route>
+          <Route path='/pelicula/:movie' element={<CardMovie />}></Route>
+        </Routes>
+      </BrowserRouter>
     </div>
   );
 }
