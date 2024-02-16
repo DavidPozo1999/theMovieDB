@@ -26,7 +26,7 @@ export function useGenres(url){
 }
 
 export function useDetails(url) {
-    const [details, setDetails] = useState(null);
+    const [details, setDetails] = useState('');
     
     useEffect(() => {
         fetch(url)

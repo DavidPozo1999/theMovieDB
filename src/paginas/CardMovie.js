@@ -2,7 +2,7 @@ import React from "react";
 import { useLocation } from "react-router-dom";
 import '../hojas_estilo/cardMovie.css'
 import { useDetails } from "../api/useEffect";
-
+import { Link } from "react-router-dom";
 function CardMovie(){
     //Recogemos los datos de la pelicula con useLocation
     const { state }= useLocation();
@@ -10,9 +10,9 @@ function CardMovie(){
     //guardamos los datos en una variable
     const movie=state.movie;
     
-    const urlDetails=`https://api.themoviedb.org/3/movie/${movie.id}?language=en-US&api_key=915d3db1d56234a45bf89e71a4552ea2`
+    const urlDetails=`https://api.themoviedb.org/3/movie/${movie.id}?language=es&api_key=915d3db1d56234a45bf89e71a4552ea2`
     const details=useDetails(urlDetails);
-    console.log(details.genres[0].name)
+    console.log(details.genres)
     return(
         <>
         <div className="section1-container">
@@ -34,7 +34,11 @@ function CardMovie(){
                 <div className="title-container">
                     <h1 className="title-movie">{movie.title}</h1>
                     <h3 className="date-movie">Fecha: {movie.release_date.substring(0,4)}</h3>
-                    <h3>Generos:{details?.map((detail)=>{detail.genres})}</h3>
+                    <h3>Géneros: {details.genres?.map((genre, index) => (
+                        <span key={genre.id}><Link to={`/peliculas/${genre.name}`} state={{genreId: genre.id}}>{genre.name}</Link>
+                            {index !== details.genres.length - 1 && ' / '} 
+                        </span>
+                    ))}</h3>
                 </div>
             </div>
         </div>
