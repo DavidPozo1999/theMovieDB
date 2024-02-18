@@ -15,7 +15,7 @@ function Movie({ search, genreId }){
     const data=useMovies(getUrl());
         return(
             <>
-                {data?.map((movie)=>(
+                {data && data?.map((movie)=>(
                     <div className="movie-item" key={movie.id}>
                         <NavLink to={`/pelicula/${movie.title}`} state={{movie}}>
                             <img src={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`} alt="Imagen no encontrada" />

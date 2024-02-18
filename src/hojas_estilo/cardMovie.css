@@ -1,4 +1,6 @@
-
+body{
+    background-color: var(--dark-color);
+}
 .section1-container{
     max-width: 1920px;
     height: auto;
@@ -20,7 +22,7 @@
     bottom: 0;
     left: 0;
     width: 100%;
-    height: 180px; /* Altura de la sombra */
+    height: 280px; /* Altura de la sombra */
     background: linear-gradient(to top, rgba(0, 0, 0, 0.8) 50%, rgba(0, 0, 0, 0) 100%);
 }
 
@@ -36,7 +38,6 @@
     position: relative;
     width: 100%;
     height: 20px;
-    background-color: blueviolet;
 }
 .poster-container img{
     position: absolute;
@@ -50,31 +51,91 @@
 .info-container-right{
     width: 75%;
     position: relative;
-    background-color: brown;
 }
 .title-container{
     position: absolute;
     top: -100px;
-    
+}
+.title-container *{
+    margin-top: .2rem;
 }
 .title-movie{
     font-weight: 600;
 }
-
+.genre-movie, .date-movie span{
+    font-weight: 300;
+}
 .average-container{
     padding-top: 8rem;
 }
 
 .average-movie{
-    background-color: aqua;
-    width: 90px;
-    height: 90px;
+    background-color: var(--magenta-color);
+    width: 140px;
+    height: 140px;
     margin: 0 auto;
     border-radius: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
-    border: 3px solid #fff;
-    font-size: 1.2rem;
+    border: 1px solid #fff;
+    font-size: 2.2rem;
     font-weight: 800;
+}
+
+.sinopsis-container{
+    width: 80%;
+    margin-bottom: 2rem;
+}
+.container-title{
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
+    padding-top: 1.5rem;
+    margin-bottom: 1rem;
+
+}
+
+.title-logo{
+    width: 40px;
+    height: 40px;
+    color: var(--magenta-color);
+}
+
+.text-title{
+    font-weight: 300;
+}
+.sinopsis-body{
+    text-align: justify;
+
+    font-weight: 200;
+    font-size: 1.2rem;
+    letter-spacing: 2px;
+}
+
+.reparto-body{
+    display: flex;
+    gap: 20%;
+}
+.actor-list li{
+    display: flex;
+    align-items: center;
+    gap: .5rem;
+    margin-bottom: 2rem;
+}
+
+.actor-image{
+    border-radius: 50%;
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+}
+.actor-name{
+    font-size: 1.2rem;
+    font-weight: 700;
+    margin-bottom: .3rem;
+
+}
+.actor-character{
+    font-weight: 200;
 }

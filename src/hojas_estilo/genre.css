@@ -19,11 +19,11 @@ a{
     width: 100%;
 }
 .genre-item:hover{
-    color: #eb007a;
-    background-color: #191919;
+    color: var(--magenta-color);
+    background-color: var(--dark-color);
 }
 
 .active{
     color: #eb007a;
-    background-color: #191919;
+    background-color: var(--dark-color);
 }

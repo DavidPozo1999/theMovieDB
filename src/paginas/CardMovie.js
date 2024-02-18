@@ -1,8 +1,13 @@
 import React from "react";
 import { useLocation } from "react-router-dom";
 import '../hojas_estilo/cardMovie.css'
-import { useDetails } from "../api/useEffect";
+import { useDetails, usePersonal, useTrailer } from "../api/useEffect";
 import { Link } from "react-router-dom";
+import { BiCameraMovie } from "react-icons/bi";
+import { IoPersonSharp } from "react-icons/io5";
+import { MdOutlineVideocam } from "react-icons/md";
+import imagenNotFound from '../imagenes/imagen-no-encontrada.jpg'
+
 function CardMovie(){
     //Recogemos los datos de la pelicula con useLocation
     const { state }= useLocation();
@@ -10,9 +15,16 @@ function CardMovie(){
     //guardamos los datos en una variable
     const movie=state.movie;
     
-    const urlDetails=`https://api.themoviedb.org/3/movie/${movie.id}?language=es&api_key=915d3db1d56234a45bf89e71a4552ea2`
+    const urlDetails=`https://api.themoviedb.org/3/movie/${movie.id}?language=es&api_key=915d3db1d56234a45bf89e71a4552ea2`;
+    const urlPersonal=`https://api.themoviedb.org/3/movie/${movie.id}/credits?language=es&api_key=915d3db1d56234a45bf89e71a4552ea2`;
+    const urlTrailer=`https://api.themoviedb.org/3/movie/${movie.id}/videos?language=es&api_key=915d3db1d56234a45bf89e71a4552ea2`;
     const details=useDetails(urlDetails);
-    console.log(details.genres)
+    const personal=usePersonal(urlPersonal);
+    const trailer=useTrailer(urlTrailer);
+    console.log(trailer);
+    const handleImageActor=(event)=>{
+        event.target.src=imagenNotFound;
+    }
     return(
         <>
         <div className="section1-container">
@@ -27,18 +39,70 @@ function CardMovie(){
                     <img src={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`}/>
                 </div>
                 <div className="average-container">
-                    <p className="average-movie">{movie.vote_average}</p>
+                    <p className="average-movie">{movie.vote_average.toString().substring(0,3)}</p>
                 </div>
             </div>
             <div className="info-container-right">
                 <div className="title-container">
                     <h1 className="title-movie">{movie.title}</h1>
-                    <h3 className="date-movie">Fecha: {movie.release_date.substring(0,4)}</h3>
+                    <h3 className="date-movie">Fecha: <span>{movie.release_date.substring(0,4)}</span></h3>
                     <h3>Géneros: {details.genres?.map((genre, index) => (
-                        <span key={genre.id}><Link to={`/peliculas/${genre.name}`} state={{genreId: genre.id}}>{genre.name}</Link>
+                        <span key={genre.id} className="genre-movie"><Link to={`/peliculas/${genre.name}`} state={{genreId: genre.id}}>{genre.name}</Link>
                             {index !== details.genres.length - 1 && ' / '} 
                         </span>
                     ))}</h3>
+                </div>
+                <div className="sinopsis-container">
+                    <div className="sinopsis-title-container container-title">
+                        <BiCameraMovie className="sinopsis-logo title-logo"/>
+                        <h1 className="sinopsis-title text-title">Sinopsis</h1>
+                    </div>
+                    <p className="sinopsis-body">{movie.overview}</p>
+                </div>
+                <div className="reparto-container">
+                    <div className="reparto-title-container container-title">
+                        <IoPersonSharp className="reparto-logo title-logo" />
+                        <h1 className="reparto-title text-title">Reparto principal</h1>
+                    </div>
+                    <div className="reparto-body">
+                    <ul className="actor-list">
+                        {personal.cast?.slice(0,4).map((person)=>(
+                            <li key={person.id}>
+                                <img src={`https://image.tmdb.org/t/p/w200/${person.profile_path}`} className="actor-image" 
+                                    onError={handleImageActor} />
+                                <div className="actor-name-container">
+                                    <p className="actor-name">{person.original_name}</p>
+                                    <p className="character-name">{person.character}</p>
+                                </div>
+                            </li>
+                        ))}
+                    </ul>
+                    <ul className="actor-list">
+                        {personal.cast?.slice(4,8).map((person)=>(
+                            <li key={person.id}>
+                                <img src={`https://image.tmdb.org/t/p/w200/${person.profile_path}`} className="actor-image"
+                                    onError={handleImageActor} />
+                                <div className="actor-name-container">
+                                    <p className="actor-name">{person.original_name}</p>
+                                    <p className="character-name">{person.character}</p>
+                                </div>
+                            </li>
+                        ))}
+                    </ul>
+                    </div>
+                </div>
+                <div className="trailer-container">
+                    <div className="trailer-title-container container-title">
+                            <MdOutlineVideocam className="trailer-logo title-logo"/>
+                            <h1 className="trailer-title text-title">Trailer</h1>
+                    </div>
+                
+                {trailer && <iframe
+                    width="100%"
+                    height="675"
+                    src={`https://www.youtube.com/embed/${trailer.key}`}
+                    title="Trailer"
+                    allowFullScreen />}
                 </div>
             </div>
         </div>

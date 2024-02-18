@@ -4,6 +4,7 @@ import '../App.css';
 import Genre from '../componentes/Genre';
 import Header from '../componentes/Header'
 import Movie from '../componentes/Movie';
+import Pagination from '../componentes/Pagination';
 function Index() {
 
   const { search }=useParams();
@@ -20,6 +21,7 @@ function Index() {
         </div>
         <div className='movie-container'>
           <Movie search={search} genreId={genreId}/>
+          <Pagination />
         </div>
       </div>
     </div>

@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 
 export function useMovies(url) {
-    const [movies, setMovies] = useState(null);
+    const [movies, setMovies] = useState([]);
     
     useEffect(() => {
         fetch(url)
@@ -36,4 +36,33 @@ export function useDetails(url) {
     }, [url]);
 
     return details;
+}
+
+export function usePersonal(url){
+    const [personal, setPersonal]= useState('');
+
+    useEffect(()=>{
+        fetch(url)
+        .then(response=>response.json())
+        .then(data=>setPersonal(data))
+        .catch(error=>console.error('Error fetching personal', error))
+    },[url]);
+    return personal;
+}
+
+export function useTrailer(url){
+    const [data, setData]=useState([])
+    const [trailer, setTrailer]=useState('');
+    useEffect(()=>{
+        fetch(url)
+        .then(response=>response.json())
+        .then(datas=> setData(datas.results))
+        .catch(error=>console.error('Error fetching personal', error))
+    },[url])
+    useEffect(() => {
+        const findTrailer = data.find(video => video.type === "Trailer");
+        setTrailer(findTrailer);
+    }, [data]);
+    return trailer;
+
 }
