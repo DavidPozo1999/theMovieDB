@@ -6,7 +6,7 @@ export function useMovies(url) {
     useEffect(() => {
         fetch(url)
             .then(response => response.json())
-            .then(data => setMovies(data.results))
+            .then(data => setMovies(data))
             .catch(error => console.error('Error fetching movies:', error));
     }, [url]);
 

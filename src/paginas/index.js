@@ -7,7 +7,7 @@ import Movie from '../componentes/Movie';
 import Pagination from '../componentes/Pagination';
 function Index() {
 
-  const { search }=useParams();
+  const { search, page }=useParams();
   //Desestructuramos el useLocation
   const { state } = useLocation();
   //Si el state es null le asignamos un undefined. Si es true entonces le asignamos el id del genero.
@@ -20,8 +20,7 @@ function Index() {
           <Genre/>
         </div>
         <div className='movie-container'>
-          <Movie search={search} genreId={genreId}/>
-          <Pagination />
+          <Movie search={search} genreId={genreId} pagination={true} page={page}/>
         </div>
       </div>
     </div>

@@ -29,6 +29,7 @@ body{
   padding: 5px 40px;
 }
 .movie-container{
+  position: relative;
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   margin: 20px;

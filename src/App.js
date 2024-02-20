@@ -13,6 +13,9 @@ function App() {
           <Route path='/peliculas/:genre' element={<Index />}></Route>
           <Route path='/search/:search' element={<Index />}></Route>
           <Route path='/pelicula/:movie' element={<CardMovie />}></Route>
+          <Route path='/peliculas/:genre/:page' element={<Index />}></Route>
+          <Route path='/page/:page' element={<Index />}></Route>
+          
         </Routes>
       </BrowserRouter>
     </div>
