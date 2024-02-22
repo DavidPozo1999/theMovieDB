@@ -10,12 +10,14 @@ function App() {
       <Header/>
         <Routes>
           <Route path='/' element={<Index />}></Route>
+          <Route path='/popular' element={<Index kindPage={'popular'} />}></Route>
+          <Route path='/series' element={<Index kindPage={'series'} />}></Route>
           <Route path='/peliculas/:genre' element={<Index />}></Route>
+          <Route path='/series/:genre' element={<Index kindPage={'series'} />}></Route>
           <Route path='/search/:search' element={<Index />}></Route>
           <Route path='/pelicula/:movie' element={<CardMovie />}></Route>
-          <Route path='/peliculas/:genre/:page' element={<Index />}></Route>
+          <Route exact path='/peliculas/:genre/page/:page' element={<Index />}></Route>
           <Route path='/page/:page' element={<Index />}></Route>
-          
         </Routes>
       </BrowserRouter>
     </div>

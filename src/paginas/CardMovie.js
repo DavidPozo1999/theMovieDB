@@ -14,7 +14,7 @@ function CardMovie(){
 
     //guardamos los datos en una variable
     const movie=state.movie;
-    
+    //construimos variables con endpoints de toda la información que necesitamos
     const urlDetails=`https://api.themoviedb.org/3/movie/${movie.id}?language=es&api_key=915d3db1d56234a45bf89e71a4552ea2`;
     const urlPersonal=`https://api.themoviedb.org/3/movie/${movie.id}/credits?language=es&api_key=915d3db1d56234a45bf89e71a4552ea2`;
     const urlTrailer=`https://api.themoviedb.org/3/movie/${movie.id}/videos?language=es&api_key=915d3db1d56234a45bf89e71a4552ea2`;
@@ -22,6 +22,8 @@ function CardMovie(){
     const personal=usePersonal(urlPersonal);
     const trailer=useTrailer(urlTrailer);
     console.log(trailer);
+    
+    //función que maneja que una imagen no cargue
     const handleImageActor=(event)=>{
         event.target.src=imagenNotFound;
     }
