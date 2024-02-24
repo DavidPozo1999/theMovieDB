@@ -5,6 +5,7 @@ import Genre from '../componentes/Genre';
 import Header from '../componentes/Header'
 import Movie from '../componentes/Movie';
 import Pagination from '../componentes/Pagination';
+import Footer from '../componentes/Footer';
 function Index({kindPage}) {
   //Recogida de parametros de la url
   const { search, page }=useParams();
@@ -13,6 +14,7 @@ function Index({kindPage}) {
   const location=useLocation();
   //Si el state es null le asignamos un undefined. Si es true entonces le asignamos el id del genero.
   const genreId = state ? state.genreId : undefined;
+  
   return (
     <div className="App">
       <div className='body body-container'>
@@ -28,6 +30,7 @@ function Index({kindPage}) {
             kindPage={kindPage}/>
         </div>
       </div>
+      <Footer />
     </div>
   );
 }

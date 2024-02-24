@@ -1,8 +1,9 @@
 .pagination-container{
     position: absolute;
     background-color: var(--gray-color);
-    padding: 0 30px;
+    padding: 0 20px;
     display: flex;
+    align-items: center;
     gap: 20px;
     width: fit-content;
     bottom: -100px;
@@ -18,6 +19,9 @@
     align-items: center;
 }
 
+.arrow{
+    font-size: 1.3rem;
+}
 .page-item-color{
     background-color: var(--magenta-color);
 }

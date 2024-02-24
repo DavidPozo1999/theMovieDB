@@ -24,6 +24,6 @@ a{
 }
 
 .active{
-    color: #eb007a;
+    color: var(--magenta-color);
     background-color: var(--dark-color);
 }

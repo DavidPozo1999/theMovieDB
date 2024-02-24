@@ -54,7 +54,7 @@ body{
 }
 .title-container{
     position: absolute;
-    top: -100px;
+    top: -120px;
 }
 .title-container *{
     margin-top: .2rem;

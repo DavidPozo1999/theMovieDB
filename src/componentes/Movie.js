@@ -14,15 +14,14 @@ function Movie({ search, genreId, pagination, page, kindPage }){
             url=`https://api.themoviedb.org/3/search/movie?query=${search}&include_adult=true&language=es&page=1&api_key=915d3db1d56234a45bf89e71a4552ea2`
         }else if(kindPage!==undefined){
             if(kindPage==="popular"){
-                url=`https://api.themoviedb.org/3/movie/top_rated?language=en-US&page=1&api_key=915d3db1d56234a45bf89e71a4552ea2`;
+                url=`https://api.themoviedb.org/3/discover/movie?include_adult=false&include_video=false&language=en-US&page=${page ? page : 1}&with_genres=${genreId===undefined ?'':genreId}&sort_by=vote_average.desc&without_genres=99,10755&vote_count.gte=200&api_key=915d3db1d56234a45bf89e71a4552ea2`
             }else if(kindPage==="series"){
-                url=`https://api.themoviedb.org/3/discover/tv?include_adult=false&include_null_first_air_dates=false&language=es&page=1&sort_by=popularity.desc&with_genres=${genreId===undefined ?'': genreId}&api_key=915d3db1d56234a45bf89e71a4552ea2`
+                url=`https://api.themoviedb.org/3/discover/tv?include_adult=false&include_null_first_air_dates=false&language=es&page=${page ? page : 1}&sort_by=popularity.desc&with_genres=${genreId===undefined ?'': genreId}&api_key=915d3db1d56234a45bf89e71a4552ea2`
             }
         }
         return url;
     }
     const data=useMovies(getUrl());
-    
     return(
             <>
                 {data && data.results?.map((movie)=>(
@@ -33,7 +32,7 @@ function Movie({ search, genreId, pagination, page, kindPage }){
                         </NavLink>
                     </div>
                 ))}
-                {pagination && <Pagination totalPages={500} currentPage={page}/>}
+                {pagination && !search && <Pagination totalPages={data.total_pages} currentPage={page} kindPage={kindPage}/>}
             </>
         )
 }
