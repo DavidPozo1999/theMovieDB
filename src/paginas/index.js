@@ -30,7 +30,11 @@ function Index({kindPage}) {
             kindPage={kindPage}/>
         </div>
       </div>
+<<<<<<< HEAD
       
+=======
+      <Footer />
+>>>>>>> 2c1a3158405a94e66696dc15e473834cf18edc92
     </div>
   );
 }

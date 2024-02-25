@@ -34,6 +34,10 @@ function Pagination({totalPages, currentPage, kindPage}){
     const { state } = useLocation();
     //Si el state es null le asignamos un undefined. Si es true entonces le asignamos el id del genero.
     const genreId = state ? state.genreId : undefined;  
+<<<<<<< HEAD
+=======
+    console.log(genreId)
+>>>>>>> 2c1a3158405a94e66696dc15e473834cf18edc92
     return(
         <>
             <div className="pagination-container">
