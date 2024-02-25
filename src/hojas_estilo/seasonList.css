@@ -1,0 +1,41 @@
+.season-list-container{
+    background-color: var(--gray-color);
+    display: flex;
+    align-items: center;
+    width: min-content;
+    padding: 0 2rem;
+    gap: .4rem;
+    height: 50px;
+    margin: 0 auto;
+}
+
+.season-list-container ul{
+    display: flex;
+    justify-content: space-between;
+    gap: .8rem;
+}
+
+.season-list-container ul li{
+    list-style: none;
+    font-weight: bolder;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+.season-list-container ul li:hover{
+    background-color: var(--magenta-color);
+    border-radius: 50%;
+}
+
+.arrow-prev, .arrow-next{
+    font-size: 1.3rem;
+}
+
+.season-active{
+    background-color: var(--magenta-color);
+    border-radius: 50%;
+}

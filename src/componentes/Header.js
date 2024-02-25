@@ -12,9 +12,8 @@ function Header(){
             <div className="header-options">
                 <ul>
                     <li><NavLink to={'/'}>Inicio</NavLink></li>
-                    <li>Series</li>
-                    <li>Actores</li>
-                    <li>Anime</li>
+                    <li><NavLink to={'/series'}>Series</NavLink></li>
+                    <li><NavLink to={'/popular'}>Popular</NavLink></li>
                 </ul>
             </div>
             <div className="searcher-container">

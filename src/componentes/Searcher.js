@@ -3,15 +3,19 @@ import { FaSearch } from "react-icons/fa";
 import { useNavigate } from "react-router-dom"
 import '../hojas_estilo/searcher.css'
 function Searcher(){
+    //Creación hook useState para el valor del buscador. 
     const [searchValue, setSearchValue]=useState('');
     const navigate= useNavigate();
+
+    //función que inserta en el useState el valor del buscador.
     const handleChange=(event)=>{
         setSearchValue(event.target.value)
-        console.log(searchValue)
     }
+
+    //función que maneja el submit del form
     const handleSubmit=(event)=>{
         event.preventDefault();
-
+        //Si la variable del buscador está vacio nos dirige al index, en caso contrario añade un parametro
         if(searchValue.length===0){
             navigate('/');
         }else{

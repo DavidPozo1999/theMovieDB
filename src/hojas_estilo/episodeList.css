@@ -1,0 +1,37 @@
+.episode-list-item{
+    height: 140px;
+    margin-bottom: 1rem;
+    display: flex;
+    gap: .5rem;
+    padding-top: 1rem;
+}
+.episode-list-item img{
+    height: 100%;
+    width: 20%;
+    object-fit: cover;
+}
+
+.episode-title{
+    font-weight: 600;
+    margin-bottom: .5rem;
+}
+.air-date{
+font-size: 1rem;
+padding-left: 1rem;
+font-weight: 300;
+}
+.episode-star-icon{
+    font-size: 1.2rem;
+}
+
+.episode-list-info{
+    position: relative;
+}
+.episode-average-container{
+    position: absolute;
+    display: flex;
+    height:auto;
+    align-items: center;
+    gap: .4rem;
+    bottom: 5%;
+}
