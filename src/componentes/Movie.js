@@ -26,11 +26,7 @@ function Movie({ search, genreId, pagination, page, kindPage }){
             <>
                 {data && data.results?.map((movie)=>(
                     <div className="movie-item" key={movie.id}>
-<<<<<<< HEAD
                         <NavLink to={kindPage==='series'? `/serie/${movie.original_name}` :`/pelicula/${movie.title}`} state={{movie}}>
-=======
-                        <NavLink to={`/pelicula/${movie.title ? movie.title: movie.original_name}`} state={{movie}}>
->>>>>>> 2c1a3158405a94e66696dc15e473834cf18edc92
                             <img src={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`} alt="Imagen no encontrada" />
                             <p>{movie.title ? movie.title : movie.original_name}</p>
                         </NavLink>

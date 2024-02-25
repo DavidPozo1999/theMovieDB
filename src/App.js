@@ -22,10 +22,7 @@ function App() {
           <Route path='/series/:genre/page/:page' element={<Index kindPage={'series'} />}></Route>
           <Route path='/search/:search' element={<Index />}></Route>
           <Route path='/pelicula/:movie' element={<CardMovie />}></Route>
-<<<<<<< HEAD
           <Route path='/serie/:movie' element={<CardSerie />}></Route>
-=======
->>>>>>> 2c1a3158405a94e66696dc15e473834cf18edc92
           <Route exact path='/peliculas/:genre/page/:page' element={<Index />}></Route>
           <Route path='/page/:page' element={<Index />}></Route>
         </Routes>

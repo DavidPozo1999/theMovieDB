@@ -21,10 +21,6 @@ function CardMovie(){
     const details=useDetails(urlDetails);
     const personal=usePersonal(urlPersonal);
     const trailer=useTrailer(urlTrailer);
-<<<<<<< HEAD
-=======
-    console.log(trailer);
->>>>>>> 2c1a3158405a94e66696dc15e473834cf18edc92
     
     //función que maneja que una imagen no cargue
     const handleImageActor=(event)=>{
