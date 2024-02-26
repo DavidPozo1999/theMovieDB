@@ -3,6 +3,9 @@ import { useLocation, Link } from "react-router-dom";
 import { useDetails } from "../api/useEffect";
 import { MdOutlineMovie } from "react-icons/md";
 import SeasonList from "../componentes/SeasonList";
+import Header from '../componentes/Header';
+import Footer from '../componentes/Footer';
+
 function CardSerie(){
     //Creamos un useLocation
     const {state}= useLocation();
@@ -12,7 +15,7 @@ function CardSerie(){
     const details=useDetails(urlDetails)
     return (
         <>
-         
+         <Header />
             <div className="section1-container">
                 <div className="backdrop-container">
                     <img src={`https://image.tmdb.org/t/p/original/${movie.backdrop_path}`} />
@@ -47,7 +50,7 @@ function CardSerie(){
                 </div>
             </div>
             </div>
-            
+            <Footer />
         </>
     )
 }

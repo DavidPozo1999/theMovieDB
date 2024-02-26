@@ -1,11 +1,10 @@
-import { useState } from 'react';
 import { useParams, useLocation } from 'react-router-dom';
 import '../App.css';
 import Genre from '../componentes/Genre';
-import Header from '../componentes/Header'
 import Movie from '../componentes/Movie';
-import Pagination from '../componentes/Pagination';
+import Header from '../componentes/Header';
 import Footer from '../componentes/Footer';
+
 function Index({kindPage}) {
   //Recogida de parametros de la url
   const { search, page }=useParams();
@@ -14,9 +13,11 @@ function Index({kindPage}) {
   const location=useLocation();
   //Si el state es null le asignamos un undefined. Si es true entonces le asignamos el id del genero.
   const genreId = state ? state.genreId : undefined;
-  
+  const usuario=state ? state.username: undefined;
+  console.log(usuario)
   return (
     <div className="App">
+      <Header />
       <div className='body body-container'>
         <div className='genre-container'>
           <Genre kindPage={kindPage}/>
@@ -30,7 +31,7 @@ function Index({kindPage}) {
             kindPage={kindPage}/>
         </div>
       </div>
-      
+      <Footer />
     </div>
   );
 }

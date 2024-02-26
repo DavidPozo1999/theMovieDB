@@ -1,19 +1,20 @@
 .header-container{
     height: 100px;
-    padding-left: 40px;
     background-color: #24262b;
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
 .logo-container{
-    width:40%
+    width: 20%;
 }
 .logo-container img{
     width:300px;
 }
 .header-options{
-    width: 40%;
+    width: 60%;
+    display: flex;
+    justify-content: center;
 }
 .header-options ul{
     display: flex;
@@ -22,6 +23,10 @@
 }
 
 .searcher-container{
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    gap: 1rem;
     width: 20%;
 }
 .header-options ul li{
@@ -34,4 +39,27 @@
 .header-options ul li:hover{
     color: #eb007a;
     transform: scale(1.1);
+}
+
+.register-button{
+    color: #fff;
+    background-color: var(--magenta-color);
+    padding: 8px 30px;
+}
+
+@media screen and (max-width:1500px){
+
+    .header-options ul li a{
+        font-size: 1.1rem;
+    }
+}
+
+@media screen and (max-width:1400px){
+
+    .logo-container img{
+        width: 200px;
+    }
+    .register-button{
+        padding: 5px 25px;
+    }
 }

@@ -21,7 +21,7 @@ function Footer(){
             </div>
         </div>
         <hr />
-        <div class="section">
+        <div class="footer-options-section">
             <div>
                 <h2>Explorar</h2>
                 <a href="#">Populares</a>

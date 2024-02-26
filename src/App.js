@@ -3,13 +3,13 @@ import Header from './componentes/Header';
 import Index from './paginas/index';
 import CardMovie from './paginas/CardMovie';
 import CardSerie from './paginas/CardSerie';
-import {BrowserRouter, Route, Routes, Navigate} from 'react-router-dom'
+import {BrowserRouter, Route, Routes, Navigate, Outlet} from 'react-router-dom'
 import Footer from './componentes/Footer';
+import Form from './paginas/Form';
 function App() {
   return (
     <div className="App">
       <BrowserRouter>
-      <Header/>
         <Routes>
           <Route path='/' element={<Index />}></Route>
           <Route path='/popular' element={<Index kindPage={'popular'} />}></Route>
@@ -25,11 +25,15 @@ function App() {
           <Route path='/serie/:movie' element={<CardSerie />}></Route>
           <Route exact path='/peliculas/:genre/page/:page' element={<Index />}></Route>
           <Route path='/page/:page' element={<Index />}></Route>
+          <Route path="/registro" element={<Form kindForm={"registro"} />}></Route>
+          <Route path='/iniciosesion' element={<Form kindForm={"inicio"} />}></Route>
         </Routes>
-        <Footer />
       </BrowserRouter>
+    
     </div>
   );
 }
-
+function WithoutHeaderFooter() {
+  return <Outlet />;
+}
 export default App;

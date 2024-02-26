@@ -7,6 +7,8 @@ import { BiCameraMovie } from "react-icons/bi";
 import { IoPersonSharp } from "react-icons/io5";
 import { MdOutlineVideocam } from "react-icons/md";
 import imagenNotFound from '../imagenes/imagen-no-encontrada.jpg'
+import Header from '../componentes/Header';
+import Footer from '../componentes/Footer';
 
 function CardMovie(){
     //Recogemos los datos de la pelicula con useLocation
@@ -28,6 +30,7 @@ function CardMovie(){
     }
     return(
         <>
+        <Header />
         <div className="section1-container">
             <div className="backdrop-container">
                 <img src={`https://image.tmdb.org/t/p/original/${movie.backdrop_path}`} />
@@ -100,14 +103,14 @@ function CardMovie(){
                 
                 {trailer && <iframe
                     width="100%"
-                    height="675"
+                    height="375px"
                     src={`https://www.youtube.com/embed/${trailer.key}`}
                     title="Trailer"
                     allowFullScreen />}
                 </div>
             </div>
         </div>
-
+        <Footer />
         </>
     );
 }

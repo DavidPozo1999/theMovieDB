@@ -2,7 +2,7 @@ import React from "react";
 import logo from '../imagenes/LOGODAVIDEO.png'
 import Searcher from './Searcher'
 import '../hojas_estilo/header.css'
-import { NavLink } from "react-router-dom";
+import { NavLink, Link } from "react-router-dom";
 function Header(){
     return(
         <div className="header-container">
@@ -17,7 +17,10 @@ function Header(){
                 </ul>
             </div>
             <div className="searcher-container">
-                <Searcher/> 
+                <Searcher/>
+                <div className="register-button-container">
+                    <Link to={'/registro'} className="register-button">Registrarse</Link>
+                </div>
             </div>
         </div>
     )

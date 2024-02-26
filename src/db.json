@@ -1,0 +1,34 @@
+{
+  "usuarios": [
+    {
+      "id": "1",
+      "usuario": "Esca2",
+      "correo": "escalonilla2222@gmail.com",
+      "contraseña": "alvaro2002"
+    },
+    {
+      "id": "7f01",
+      "usuario": "DavidPozo1999",
+      "correo": "david.david.coronado@gmail.com",
+      "contraseña": "sfds3432432"
+    },
+    {
+      "id": "e605",
+      "usuario": "firla_crowned",
+      "correo": "chiken1999@gmail.com",
+      "contraseña": "123456a"
+    },
+    {
+      "id": "968a",
+      "usuario": "dsfs",
+      "correo": "alumno.96780@ies-azarquiel.es",
+      "contraseña": "123456a"
+    },
+    {
+      "id": "d184",
+      "usuario": "david",
+      "correo": "sfasf@gmail.com",
+      "contraseña": "123456"
+    }
+  ]
+}

@@ -1,0 +1,133 @@
+.register-body-container, .login-body-container{
+    
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100vh;
+    background: linear-gradient(135deg, #eb007a, #007bff);
+    /* Degradado de colores */
+}
+
+.container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.login-container,
+.register-container {
+    background-color: rgba(255, 255, 255, 0.8);
+    padding: 40px;
+    border-radius: 8px;
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.3);
+    width: 400px;
+    text-align: center;
+    animation: fadeIn 1s ease;
+    color: black;
+}
+.input-container label{
+    color: black;
+}
+
+.logo-form-container {
+    margin-bottom: 20px;
+}
+
+.logo-form-container img {
+    width: 100px;
+}
+
+.title-form-register, .title-form-login {
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.form-group {
+    margin-bottom: 20px;
+    text-align: left;
+    /* Alineación a la izquierda */
+}
+
+.label-input {
+    display: flex;
+    justify-content: space-between;
+}
+
+.label-input label {
+    margin-bottom: 5px;
+    color: #333;
+}
+
+.input-container input {
+    width: calc(100% - 22px);
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    margin-top: 5px;
+    box-sizing: border-box;
+}
+
+button {
+    background-color: #eb007a;
+    /* Cambio de color de botón */
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #ff007a;
+    /* Cambio de color de botón al pasar el cursor */
+}
+
+.footer-form-register, .footer-form-login {
+    margin-top: 20px;
+    color: #333;
+}
+
+.footer-form-register p, .footer-form-login p {
+    margin: 0;
+    color: black;
+}
+
+.footer-form-register a, .footer-form-login a {
+    color: #eb007a;
+    /* Cambio de color de enlace */
+    text-decoration: none;
+}
+
+.footer a:hover {
+    text-decoration: underline;
+}
+
+/* Agrega este CSS a tu archivo CSS */
+#registration-success {
+    background-color: green;
+    color: white;
+    padding: 10px;
+    text-align: center;
+    margin-bottom: 20px; /* Agrega espacio debajo del mensaje para separarlo del contenedor */
+}
+
+.error-message {
+    color: red;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
